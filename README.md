@@ -47,6 +47,25 @@ ACME Control/
 * **Simulated integrations** – SMS to on-call for high/critical alarms, CMMS export for work orders and lockouts,
   historian journaling, supervisor e-mail for setpoint proposals. They appear as `integration` events.
 
+## Deployed environment
+
+| Component | Where |
+| --- | --- |
+| Web app | <https://acme-control.vercel.app> (Vercel project `acme-control`, root directory `app`) |
+| API | <https://acme-control-api.vercel.app/api> (Vercel project `acme-control-api`, root directory `api`) |
+| Supabase | project `acme-control`, ref `zwooklcgzlzrrcpduzra`, region São Paulo (`sa-east-1`) |
+| Source | <https://github.com/rafahmarinho/ACME-Control> (pushes to `main` deploy both Vercel projects) |
+
+The schema, demo data and demo accounts are already loaded in the Supabase project. Environment variables are set on
+both Vercel projects, except the server key that only the project owner can read:
+
+1. Supabase dashboard → Project Settings → API keys → copy the **service_role** key (or create a **secret key**,
+   `sb_secret_…`) and add it to the Vercel project `acme-control-api` as `SUPABASE_SERVICE_ROLE_KEY`, then redeploy.
+   Alternatively connect the Supabase project to the Vercel projects through the Supabase integration already installed
+   on the Vercel team (Vercel → Integrations → Supabase); it syncs the key automatically.
+2. Supabase dashboard → Authentication → URL Configuration: Site URL `https://acme-control.vercel.app`, redirect URLs
+   `https://acme-control.vercel.app/#/reset-password` and `acmecontrol://auth/reset-password`.
+
 ## 1. Supabase
 
 1. Create a project at <https://supabase.com> (free tier is enough). Note the **Project URL**, the **anon** key
