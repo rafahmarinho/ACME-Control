@@ -52,7 +52,7 @@ ACME Control/
 | Component | Where |
 | --- | --- |
 | Web app | <https://acme-control.vercel.app> (Vercel project `acme-control`, root directory `app`) |
-| API | <https://acme-control-api.vercel.app/api> (Vercel project `acme-control-api`, root directory `api`) |
+| API | <https://acmecontrol-api.vercel.app/api> (Vercel project `acme-control-api`, root directory `api`) |
 | Supabase | project `acme-control`, ref `zwooklcgzlzrrcpduzra`, region São Paulo (`sa-east-1`) |
 | Source | <https://github.com/rafahmarinho/ACME-Control> (pushes to `main` deploy both Vercel projects) |
 
